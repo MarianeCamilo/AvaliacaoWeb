@@ -1,11 +1,19 @@
 {
   "name": "avaliacaoweb",
   "version": "1.0.0",
-  "description": "avaliacao-web",
+  "description": "Avaliacao de desenvolvimento web",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mariane",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarianeCamilo/AvaliacaoWeb.git"
+  },
+  "author": "Mariane Camilo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarianeCamilo/AvaliacaoWeb/issues"
+  },
+  "homepage": "https://github.com/MarianeCamilo/AvaliacaoWeb#readme"
 }

@@ -1,0 +1,17 @@
+body {
+  
+    h1 {
+    }
+    h2 {
+    }
+  
+    .botao {
+      &__primary {
+        background-color: red;
+        &--active {
+          background-color: blue;
+        }
+      }
+    }
+  }
+  
