@@ -2,34 +2,34 @@
 //*****************************************************************************
 // Metodo que inclui/altera acoes de elementos da pagina depois que a pagina foi carregada
 //
-window.onload = function() {
-	//script para mostrar um preview da imagem do upload
-	document.getElementById("foto").onchange = function () {
-		var reader = new FileReader();
+// window.onload = function() {
+// 	//script para mostrar um preview da imagem do upload
+// 	document.getElementById("foto").onchange = function () {
+// 		var reader = new FileReader();
 
-		reader.onload = function (e) {
-			document.getElementById("image").src = e.target.result; //obtem info do campo foto
-		};
-		//carrega a imagem na tela
-		reader.readAsDataURL(this.files[0]);
-	};
+// 		reader.onload = function (e) {
+// 			document.getElementById("image").src = e.target.result; //obtem info do campo foto
+// 		};
+// 		//carrega a imagem na tela
+// 		reader.readAsDataURL(this.files[0]);
+// 	};
 
-	//prepara botao Limpar na acao de Editar cliente
-	document.getElementById("btnLimpar").onclick = function () {
-		restauraForm();
-	};
-}
+// 	//prepara botao Limpar na acao de Editar cliente
+// 	document.getElementById("btnLimpar").onclick = function () {
+// 		restauraForm();
+// 	};
+// }
 
-function restauraForm() {
-	//limpa quadro preview imagem
-	document.getElementById('image').src 		= '';
-	//limpa os campos id e nomeFoto usados no update
-	document.getElementById('id').value  		= "-1";
-	document.getElementById('nomeFoto').value  	= "";
-	//retorna o label original dos botoes
-	document.getElementById('btnLimpar').value 	= "Limpar";
-	document.getElementById('btnSalvar').value 	= "Salvar";
-}
+// function restauraForm() {
+// 	//limpa quadro preview imagem
+// 	document.getElementById('image').src 		= '';
+// 	//limpa os campos id e nomeFoto usados no update
+// 	document.getElementById('id').value  		= "-1";
+// 	document.getElementById('nomeFoto').value  	= "";
+// 	//retorna o label original dos botoes
+// 	document.getElementById('btnLimpar').value 	= "Limpar";
+// 	document.getElementById('btnSalvar').value 	= "Salvar";
+// }
 
 //*****************************************************************************
 // Metodo que altera a cor do input quando recebe o foco
@@ -77,8 +77,8 @@ function carregarCliente( obj ) {
       		document.getElementById('nome').value 		= resultado[0].nome;
       		document.getElementById('email').value 		= resultado[0].email;
       		document.getElementById('telefone').value 	= resultado[0].telefone;
-      		document.getElementById('image').src 		= "/crud/imagens/"+resultado[0].foto;
-      		document.getElementById('nomeFoto').value 	= resultado[0].foto;
+      		//document.getElementById('image').src 		= "/crud/imagens/"+resultado[0].foto;
+      		//document.getElementById('nomeFoto').value 	= resultado[0].foto;
       		//deixa o foco no campo nome para edicao
       		document.getElementById('nome').focus();
       		//modifica acao do botao limpar para voltar
@@ -148,8 +148,8 @@ function salvarForm() {
   	formData.append("nome", document.getElementById("nome").value);
   	formData.append("email", document.getElementById("email").value);
   	formData.append("telefone", document.getElementById("telefone").value);
-  	formData.append("foto", document.getElementById("foto").files[0]);
-  	formData.append("nomeFoto", document.getElementById("nomeFoto").value);
+  	//formData.append("foto", document.getElementById("foto").files[0]);
+  	//formData.append("nomeFoto", document.getElementById("nomeFoto").value);
   	//submete para server-side
   	//xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   	xhttp.open("POST", "crud.php?action=salvar", true);

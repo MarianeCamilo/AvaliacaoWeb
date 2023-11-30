@@ -96,46 +96,46 @@ function salvarForm()
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
-    $nome_imagem = $_POST["nomeFoto"];
-    $foto = isset($_FILES['foto']) ? $_FILES['foto'] : null;
+    // $nome_imagem = $_POST["nomeFoto"];
+    // $foto = isset($_FILES['foto']) ? $_FILES['foto'] : null;
 
-    $v = validarForm($id, $nome, $email, $telefone, $foto);
+    // $v = validarForm($id, $nome, $email, $telefone, $foto);
 
-    if ($v != null) {
-        echo "Problema encontrado:<br>" . $v;
-        exit;
-    }
+    // if ($v != null) {
+    //     echo "Problema encontrado:<br>" . $v;
+    //     exit;
+    // }
 
-    if (!empty($foto)) {
-        $imagem_tmp = $foto['tmp_name'];
-        $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/crud/imagens/';
-        $envia_imagem = $diretorio . $nome_imagem;
+    // if (!empty($foto)) {
+    //     $imagem_tmp = $foto['tmp_name'];
+    //     $diretorio = $_SERVER['DOCUMENT_ROOT'] . '/crud/imagens/';
+    //     $envia_imagem = $diretorio . $nome_imagem;
 
-        if (!move_uploaded_file($imagem_tmp, $envia_imagem)) {
-            echo 'Erro ao enviar arquivo de imagem.';
-            exit;
-        }
-    }
+    //     if (!move_uploaded_file($imagem_tmp, $envia_imagem)) {
+    //         echo 'Erro ao enviar arquivo de imagem.';
+    //         exit;
+    //     }
+    // }
 
-    try {
-        if ($id > 0) {
-            $sql = "UPDATE cliente SET nome=?, email=?, telefone=?, foto=? WHERE id=?";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$nome, $email, $telefone, $nome_imagem, $id]);
-        } else {
-            $sql = "INSERT INTO cliente (nome, email, telefone, foto) VALUES (?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$nome, $email, $telefone, $nome_imagem]);
-        }
+    // try {
+    //     if ($id > 0) {
+    //         $sql = "UPDATE cliente SET nome=?, email=?, telefone=?, foto=? WHERE id=?";
+    //         $stmt = $pdo->prepare($sql);
+    //         $stmt->execute([$nome, $email, $telefone, $nome_imagem, $id]);
+    //     } else {
+    //         $sql = "INSERT INTO cliente (nome, email, telefone, foto) VALUES (?, ?, ?, ?)";
+    //         $stmt = $pdo->prepare($sql);
+    //         $stmt->execute([$nome, $email, $telefone, $nome_imagem]);
+    //     }
 
-        if ($stmt->rowCount() > 0) {
-            echo ($id > 0) ? "Cliente atualizado com sucesso!" : "Cliente cadastrado com sucesso!";
-        } else {
-            echo "Nenhum dado foi modificado.";
-        }
-    } catch (PDOException $e) {
-        echo "Erro ao salvar cliente: " . $e->getMessage();
-    }
+    //     if ($stmt->rowCount() > 0) {
+    //         echo ($id > 0) ? "Cliente atualizado com sucesso!" : "Cliente cadastrado com sucesso!";
+    //     } else {
+    //         echo "Nenhum dado foi modificado.";
+    //     }
+    // } catch (PDOException $e) {
+    //     echo "Erro ao salvar cliente: " . $e->getMessage();
+    // }
 }
 
 // Method to delete client record
@@ -165,7 +165,7 @@ function excluirForm()
 }
 
 // Method to validate form data
-function validarForm($id, $nome, $email, $telefone, $foto)
+function validarForm($id, $nome, $email, $telefone)
 {
     if ($nome == null || trim($nome) == "") {
         return "Campo Nome deve ser preenchido.";

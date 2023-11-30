@@ -12,6 +12,6 @@
 <body>
     <?php
 
-    include __DIR__ . "./menu.php";
+    //include __DIR__ . "./menu.php";
 
     ?>

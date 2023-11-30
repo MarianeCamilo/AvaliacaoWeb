@@ -15,11 +15,11 @@ include __DIR__ . "/header.php";
         <legend>Telefone:</legend>
         <input id="telefone" type=text class=input-text required pattern="\d*" placeholder="Insira seu telefone (apenas números)" size=10 name=telefone onFocus="inputOn(this)" onBlur="inputOff(this)"/>
     </fieldset>
-    <fieldset>
-        <legend>Foto:</legend>
+     <fieldset>
+        <!-- <legend>Foto:</legend>
         <input type=file id="foto" name=foto class=input-text accept="image/png, image/jpeg"/>
-        <img id="image" class=thumb />
-    </fieldset>
+        <img id="image" class=thumb /> -->
+    </fieldset> 
     <input id="id" type=hidden value="-1" />
     <input id="nomeFoto" type=hidden value="" />
     <input type=reset class=button id="btnLimpar" value="Limpar" />
