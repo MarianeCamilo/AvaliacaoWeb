@@ -1,13 +1,4 @@
-/**
- * CRUD Teste para Essentia Pharma
- *
- * @category    CRUD
- * @package     crud
- * @copyright  Copyright (c) 2018 Mario SAM (http://www.mariosam.com.br)
- * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
 
-/* Reset ================================================================================= */
 * { margin:0; padding:0; }
 
 body          { background:#023e4e; font:12px/1.35 Arial, Helvetica, sans-serif; color:#000; text-align:center; }
@@ -113,6 +104,10 @@ button.disabled span {}
 button.btn-checkout span {}
 button.btn-checkout.no-checkout {}
 
+.btnLimpar {
+    margin-right: 50px;
+}
+
 ::-webkit-input-placeholder { color: black; font-size: 12px; }
 :-moz-placeholder { color: white; }
 ::-moz-placeholder { color: white; }
@@ -131,4 +126,6 @@ p.a,
 p.rodape { padding: 20px; color: #fff; font-size: 11px; font-weight: bold; }
 input.focus { background: #fff; }
 
-/* ======================================================================================= */
+
+.table { background:#023e4e; font:12px/1.35 Arial, Helvetica, sans-serif; color:#000; text-align:center; }
+  

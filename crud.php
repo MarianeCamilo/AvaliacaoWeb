@@ -117,25 +117,36 @@ function salvarForm()
     //     }
     // }
 
-    // try {
-    //     if ($id > 0) {
-    //         $sql = "UPDATE cliente SET nome=?, email=?, telefone=?, foto=? WHERE id=?";
-    //         $stmt = $pdo->prepare($sql);
-    //         $stmt->execute([$nome, $email, $telefone, $nome_imagem, $id]);
-    //     } else {
-    //         $sql = "INSERT INTO cliente (nome, email, telefone, foto) VALUES (?, ?, ?, ?)";
-    //         $stmt = $pdo->prepare($sql);
-    //         $stmt->execute([$nome, $email, $telefone, $nome_imagem]);
-    //     }
+     try {
+         if ($id > 0) {
+             $sql = "UPDATE cliente SET nome=?, email=?, telefone=? WHERE id=?";
+             $stmt = $pdo->prepare($sql);
+             $stmt->execute([$nome, $email, $telefone, $id]);
+         } else {
+             $sql = "INSERT INTO cliente (nome, email, telefone) VALUES (?, ?, ?)";
+             $stmt = $pdo->prepare($sql);
+             $stmt->execute([$nome, $email, $telefone]);
+         }
 
-    //     if ($stmt->rowCount() > 0) {
-    //         echo ($id > 0) ? "Cliente atualizado com sucesso!" : "Cliente cadastrado com sucesso!";
-    //     } else {
-    //         echo "Nenhum dado foi modificado.";
-    //     }
-    // } catch (PDOException $e) {
-    //     echo "Erro ao salvar cliente: " . $e->getMessage();
-    // }
+         if ($stmt->rowCount() > 0) {
+             echo ($id > 0) ? "
+             Cliente atualizado com sucesso!" : "Cliente cadastrado com sucesso! 
+                <script>window.location.href = './carregar_lista.php';</script>
+             ";
+         } else {
+             echo "Nenhum dado foi modificado.";
+         }
+     } catch (PDOException $e) {
+         echo "Erro ao salvar cliente: " . $e->getMessage();
+     }
+
+     // só funciona na requisição na principal
+     // header("", true, 301);  
+     // exit();  
+
+     
+     
+
 }
 
 // Method to delete client record
